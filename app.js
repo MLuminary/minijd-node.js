@@ -15,3 +15,4 @@
 
  //向客户端提供动态资源的响应
  app.post('/user/register',user.register);
+ app.post('/user/login',user.login);
