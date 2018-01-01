@@ -6,8 +6,12 @@
 
  const http = require('http');
  const express = require('express');
+ var user = require('./user');
 
  var app = express();
  http.createServer(app).listen(8080);
  //向客户端提供静态资源的响应
  app.use(express.static('public'));
+
+ //向客户端提供动态资源的响应
+ app.post('/user/register',user.register);
