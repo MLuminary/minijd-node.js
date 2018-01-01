@@ -1,0 +1,28 @@
+.top{
+  height: 100px;
+  box-shadow: 0 0 8px 5px rgba(175, 172, 172, 0.884);
+  line-height: 100px;
+}
+
+.top img {
+  margin-right: 30px;
+}
+
+
+@media screen and (max-width:768px) {
+  .top img {
+    display: none;
+  }
+  .top .row {
+    text-align: center;
+    height: 75px;
+  }
+  .top {
+    line-height: 50px;
+  }
+}
+
+
+.mainbody {
+  padding: 60px;
+}
