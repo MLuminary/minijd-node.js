@@ -8,9 +8,11 @@
       url: '/user/login',
       data : { uname: uname, upwd: upwd },
       success: function (data) {
-        console.log(data.code)
         if(data.code==1){
-          location.href = 'usercenter.html';
+          //存储登录的姓名和uid
+          sessionStorage['loginUname'] = uname;
+          sessionStorage['loginUid'] = data.uid;
+          location.href = 'productlist.html';
         }else{
           alert("密码输入错误");
         }
