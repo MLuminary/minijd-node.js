@@ -25,7 +25,6 @@
             url: '/product/product_list',
             data: { page: page, num: num },
             success: function (data) {
-              console.log(data);
                 var html = "";
                 for (var i = 0; i < data.length; i++) {
                     var obj = data[i];
@@ -78,29 +77,29 @@
     }
 
 
-    // //点击添加到购物车
-    // //利用事件委托
-    // $("#plist").on('click', 'a.addcart', function (e) {
-    //     //取消默认事件
-    //     e.preventDefault();
-    //     // 获得pid
-    //     var pid = $(this).attr('href');
-    //     $.ajax({
-    //         type: 'post',
-    //         url: '/cart/add_cart',
-    //         data: { uid: sessionStorage['loginUid'], pid: pid },
-    //         success: function (data) {
-    //             if (data > 0) {
-    //                 alert("添加成功!该商品己购买" + data);
-    //             } else {
-    //                 alert("添加失败");
-    //             }
-    //         },
-    //         error: function (error) {
-    //             alert("请检查网络");
-    //         }
-    //     })
-    // })
+    //点击添加到购物车
+    //利用事件委托
+    $("#plist").on('click', 'a.addcart', function (e) {
+        //取消默认事件
+        e.preventDefault();
+        // 获得pid
+        var pid = $(this).attr('href');
+        $.ajax({
+            type: 'post',
+            url: '/cart/add_cart',
+            data: { uid: sessionStorage['loginUid'], pid: pid },
+            success: function (data) {
+                if (data.code > 0) {
+                    alert("添加成功!该商品己购买" + data.count);
+                } else {
+                    alert("添加失败");
+                }
+            },
+            error: function (error) {
+                alert("请检查网络");
+            }
+        })
+    })
 
     //分页查询
     $('#plist .pager').on('click', 'a', function (e) {
