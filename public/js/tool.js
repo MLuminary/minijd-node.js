@@ -17,3 +17,4 @@ function logincheck() {
     location.href = "login.html";
   })
 }
+

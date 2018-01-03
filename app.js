@@ -21,4 +21,8 @@ app.post('/user/login', user.login);
 
 app.post('/product/product_list',product.product_list);
 app.get('/product/product_count',product.product_count);
+
 app.post('/cart/add_cart',cart.add_cart);
+app.post('/cart/cart_list',cart.cart_list);
+app.post('/cart/del_cart',cart.del_cart);
+app.post('/cart/update_cart',cart.update_cart);
